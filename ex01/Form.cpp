@@ -6,7 +6,7 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 08:11:41 by arabelo-          #+#    #+#             */
-/*   Updated: 2024/07/02 23:08:27 by arabelo-         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:24:00 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ Form	&Form::operator=(const Form &obj) {
 	return (*this);
 }
 
-Form::Form(std::string name, size_t gradeToSign, size_t gradeToExec): _name(name),
+Form::Form(std::string name, int gradeToSign, int gradeToExec): _name(name),
 	_gradeToSign(gradeToSign), _gradeToExec(gradeToExec) {
 	if (_gradeToSign > 150 || _gradeToExec > 150)
 		throw Form::GradeTooLowException();
-	else if (_gradeToSign < 0 || _gradeToExec < 0)
+	else if (_gradeToSign < 1 || _gradeToExec < 1)
 		throw Form::GradeTooHighException();
 	_isSigned = false;
 }
@@ -45,11 +45,11 @@ bool	Form::getIsSigned(void) const {
 	return (_isSigned);
 }
 
-size_t	Form::getGradeToSign(void) const {
+int	Form::getGradeToSign(void) const {
 	return (_gradeToSign);
 }
 
-size_t	Form::getGradeToExec(void) const {
+int	Form::getGradeToExec(void) const {
 	return (_gradeToSign);
 }
 
