@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <RobotomyRequestForm.hpp>
+#include <time>
 
 RobotomyRequestForm::RobotomyRequestForm(void): AForm("RobotomyRequestForm", 72, 45) {}
 
@@ -35,6 +36,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("RobotomyReq
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 	(void)executor;
 	int random_number;
+	std::srand(time());
 
 	random_number = rand() % 2;
 	std::cout << "Bzzzzzz Bzzzzzz Bzzzzzz" << std::endl;
